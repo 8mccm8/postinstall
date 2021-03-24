@@ -1,3 +1,4 @@
+#/bin/bash
 useradd -m ansible
 apt install sudo
 mkdir ~ansible/.ssh
