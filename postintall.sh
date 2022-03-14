@@ -1,5 +1,5 @@
 #!/bin/bash
-# # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintalldeb.sh)"
+# # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintall.sh)"
 if which apt &> /dev/null; then
     install="apt install"
 if which dnf &> /dev/null;then
