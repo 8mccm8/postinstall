@@ -1,7 +1,10 @@
 #!/bin/bash
 # # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintall.sh)"
+
 if which apt &> /dev/null; then
     install="apt install"
+fi
+
 if which dnf &> /dev/null;then
     install="dnf install"
 fi
@@ -20,3 +23,4 @@ Defaults:ansible !requiretty
 ansible ALL=(ALL) NOPASSWD: ALL
 _EOF
 chmod 600 /etc/sudoers.d/ansible
+
