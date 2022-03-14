@@ -1,7 +1,13 @@
 #!/bin/bash
 # # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintalldeb.sh)"
+if which apt &> /dev/null; then
+    install="apt install"
+if which dnf &> /dev/null;then
+    install="dnf install"
+fi
+
 useradd -m ansible
-apt install sudo
+${install} sudo
 mkdir ~ansible/.ssh
 cat <<_EOF > ~ansible/.ssh/authorized_keys
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH0ExqSxkRpS3ezB73R2S0Qk4jXj5wfeFw6CwURuFYfr postinstall@ansible
