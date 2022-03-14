@@ -1,4 +1,5 @@
 #!/bin/bash
+# # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintalldeb.sh)"
 useradd -m ansible
 apt install sudo
 mkdir ~ansible/.ssh
