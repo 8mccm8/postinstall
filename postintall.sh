@@ -13,7 +13,7 @@ useradd -m ansible
 ${install} sudo
 mkdir ~ansible/.ssh
 cat <<_EOF > ~ansible/.ssh/authorized_keys
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICqHfLTy8Rs/HuAZnLS4Arnm1zxp0Dw1fEodAy+RMkzn postinstall@ansible
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzOvrSAZoPbYL3QapT6cVBHZWaPnDgcJ5Jsle9WCAve
 _EOF
 chown -R ansible:ansible ~ansible/.ssh/
 chmod 700 ~ansible/.ssh/
