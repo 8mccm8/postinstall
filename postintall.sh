@@ -5,6 +5,10 @@ if which apt &> /dev/null; then
     install="apt install"
 fi
 
+if which apt-get &> /dev/null; then
+    install="apt-get install"
+fi
+
 if which dnf &> /dev/null;then
     install="dnf install"
 fi
