@@ -27,4 +27,4 @@ Defaults:ansible !requiretty
 ansible ALL=(ALL) NOPASSWD: ALL
 _EOF
 chmod 600 /etc/sudoers.d/ansible
-
+#test
