@@ -1,18 +1,19 @@
 #!/bin/bash
 # # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintall.sh)"
 
-
+usage="$0 <ced|dub>"
 
 if [ $# -eq 1 ]; then
-param=$1     
+	param=$1     
 else
-    exit 1;
-fi
-if [ $param != ced ] || [ $param != dub ] ; then
+	echo $usage
 	exit 1;
 fi
-echo "les parametres sont bons";
-exit 1;
+
+if [ $param != ced ] || [ $param != dub ] ; then
+	echo "$usage"
+	exit 1;
+fi
 
 if which apt &> /dev/null; then
     install="apt install"
@@ -25,6 +26,8 @@ fi
 if which dnf &> /dev/null;then
     install="dnf install"
 fi
+
+echo "commande = $install"
 
 useradd -m ansible
 ${install} sudo
@@ -48,4 +51,3 @@ Defaults:ansible !requiretty
 ansible ALL=(ALL) NOPASSWD: ALL
 _EOF
 chmod 600 /etc/sudoers.d/ansible
-#test
