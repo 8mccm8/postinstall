@@ -2,6 +2,8 @@
 # # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintall.sh)"
 
 usage="$0 <ced|dub>"
+declare -x key_ced='ced'
+declare -x key_dub='dub'
 
 if [ $# -eq 1 ]; then
 	param=$1     
@@ -10,7 +12,8 @@ else
 	exit 1;
 fi
 
-if [ $param != ced ] || [ $param != dub ] ; then
+if ! [[ $param = $key_ced  ||  $param = $key_dub ]]
+then
 	echo "$usage"
 	exit 1;
 fi
