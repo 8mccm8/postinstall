@@ -1,12 +1,15 @@
 #!/bin/bash
+###curl -fsSL https://raw.githubusercontent.com/nicdu40/postinstall/main/postintall.sh -o  postintall.sh && chmod u+x postintall.sh
+
 # # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintall.sh)"
+
 
 usage="$0 <ced|dub>"
 declare -x key_ced='ced'
 declare -x key_dub='dub'
 
 if [ $# -eq 1 ]; then
-	param=$1     
+	param=$1
 else
 	echo $usage
 	exit 1;
