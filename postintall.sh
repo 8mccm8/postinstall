@@ -18,18 +18,19 @@ then
 	exit 1;
 fi
 
-if which apt &> /dev/null; then
-    install="apt install"
-fi
-
-if which apt-get &> /dev/null; then
+if ls /usr/bin/apt-get &> /dev/null; then
     install="apt-get install"
-fi
 
-if which dnf &> /dev/null;then
+elif ls /usr/bin/apt &> /dev/null; then
+    install="apt install"
+
+elif ls /usr/bin/dnf &> /dev/null;then
     install="dnf install"
-fi
 
+else
+	echo "Not a Debian, CentOS, Fedora, Redhat machine "
+	exit 1;
+fi
 echo "commande = $install"
 
 useradd -m ansible
