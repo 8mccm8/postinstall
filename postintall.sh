@@ -22,13 +22,13 @@ then
 fi
 
 if ls /usr/bin/apt-get &> /dev/null; then
-    install="apt-get install"
+    install="apt-get -y install"
 
 elif ls /usr/bin/apt &> /dev/null; then
-    install="apt install"
+    install="apt -y install"
 
 elif ls /usr/bin/dnf &> /dev/null;then
-    install="dnf install"
+    install="dnf -y install"
 
 else
 	echo "Not a Debian, CentOS, Fedora, Redhat machine "
