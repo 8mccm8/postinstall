@@ -33,7 +33,7 @@ fi
 echo "commande = $install"
 
 useradd -m ansible
-${install} sudo
+${install} sudo openssh-server 
 mkdir ~ansible/.ssh
 if [ $param = ced ] ; then
 cat <<_EOF > ~ansible/.ssh/authorized_keys
