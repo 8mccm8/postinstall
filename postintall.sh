@@ -1,12 +1,15 @@
 #!/bin/bash
+###curl -fsSL https://raw.githubusercontent.com/nicdu40/postinstall/main/postintall.sh -o  postintall.sh && chmod u+x postintall.sh
+
 # # sh -c "$(curl -fsSL https://raw.githubusercontent.com/8mccm8/postinstall/main/postintall.sh)"
+
 
 usage="$0 <ced|dub>"
 declare -x key_ced='ced'
 declare -x key_dub='dub'
 
 if [ $# -eq 1 ]; then
-	param=$1     
+	param=$1
 else
 	echo $usage
 	exit 1;
@@ -18,22 +21,23 @@ then
 	exit 1;
 fi
 
-if which apt &> /dev/null; then
-    install="apt install"
-fi
+if ls /usr/bin/apt-get &> /dev/null; then
+    install="apt-get -y install"
 
-if which apt-get &> /dev/null; then
-    install="apt-get install"
-fi
+elif ls /usr/bin/apt &> /dev/null; then
+    install="apt -y install"
 
-if which dnf &> /dev/null;then
-    install="dnf install"
-fi
+elif ls /usr/bin/dnf &> /dev/null;then
+    install="dnf -y install"
 
+else
+	echo "Not a Debian, CentOS, Fedora, Redhat machine "
+	exit 1;
+fi
 echo "commande = $install"
 
 useradd -m ansible
-${install} sudo
+${install} sudo openssh-server 
 mkdir ~ansible/.ssh
 if [ $param = ced ] ; then
 cat <<_EOF > ~ansible/.ssh/authorized_keys
